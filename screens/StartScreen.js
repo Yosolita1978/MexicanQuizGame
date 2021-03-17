@@ -31,8 +31,7 @@ const styles = StyleSheet.create({
         marginVertical:10,
         color: 'white',
         textDecorationColor: Color.accent,
-        marginBottom: 20,
-        fontFamily: 'sans-serif'
+        marginBottom: 20
     },
        buttonView:{
         paddingHorizontal: 15,

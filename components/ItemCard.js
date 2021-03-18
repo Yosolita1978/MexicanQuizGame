@@ -15,9 +15,9 @@ const AnswerItem = props => {
 
 const styles = StyleSheet.create({
     listItem: {
-        backgroundColor: Color.primary,
+        backgroundColor: Color.accentLight,
+        opacity: 0.9,
         borderBottomColor: '#bbb',
-        borderBottomWidth: StyleSheet.hairlineWidth,
         padding: 10,
         marginVertical:5,
         marginTop: 10,
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
       textItem:{
           fontSize: 16,
           textAlign: 'center',
-          color: 'white'
+          color: 'black'
 
       }
 });

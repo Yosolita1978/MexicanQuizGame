@@ -2,21 +2,22 @@ import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import Color from "../constants/colors";
 import Card from '../components/Card';
+import ProgressBar from './ProgressBar';
 
 
 const QuestionCard = props => {
+
+    const question = props.question;
+    const totalQuestions = props.totalQuestions;
+    const currentIndex = props.currentIndex;
+
     return(
         
         <Card style={styles.questionView}>
             <Text style={styles.questionText}>
-            {props.questionTitle}
+            {question.title}
             </Text>
-            <View style={styles.barView}>
-            <View style={styles.progressView}>
-                <Text style={styles.numQuestion}>1/10</Text>
-            </View>
-          
-            </View>
+            <ProgressBar progress={currentIndex + 1} numQuestions={totalQuestions} />
         
         </Card>
         
@@ -26,11 +27,12 @@ const QuestionCard = props => {
 
 const styles = StyleSheet.create({
     questionView:{
-        width: '100%',
+        width: '90%',
         alignItems: 'center',
         marginTop: 15,
         flexDirection: 'column',
-        backgroundColor: Color.backgrounds
+        backgroundColor: Color.backgrounds,
+        paddingVertical:20
     },
     questionText:{
         fontSize: 20,
@@ -39,11 +41,7 @@ const styles = StyleSheet.create({
         color: Color.secondary,
         padding:15
     },
-    numQuestion:{
-        fontSize: 14,
-        color: 'black',
-        
-    },
+    
     barView:{
         flex: 1,
         justifyContent: 'center',
@@ -53,16 +51,8 @@ const styles = StyleSheet.create({
         paddingTop: 20
         
     },
-    progressView:{
-        backgroundColor: Color.accent,
-        width:'10%',
-        height: 20,
-        marginTop: -20,
-        justifyContent: 'center',
-        alignContent: 'center'
-        
-    }
     
+        
 });
 
 export default QuestionCard;

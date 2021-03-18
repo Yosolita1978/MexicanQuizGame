@@ -1,12 +1,21 @@
 import React from 'react';
 import { View, StyleSheet} from 'react-native';
+import AnswersCard from '../components/AnswersCard';
 import QuestionCard from '../components/QuestionCard';
 
 const QuizScreen = props => {
 
+    const questions = props.questions;
+    const totalQuestions = questions.length;
+    const currentIndex = 0;
+    const question = questions[currentIndex];
+
+    
+
     return(
     <View style={styles.quizScreen}>
-        <QuestionCard questionTitle={"¿Here goes one of the questions about Mexico?"}/>     
+        <QuestionCard question={question} currentIndex={currentIndex} totalQuestions={totalQuestions}/>     
+        <AnswersCard question={question}/>
                
     </View>
     );

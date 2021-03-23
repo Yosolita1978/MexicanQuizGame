@@ -4,6 +4,7 @@ import AnswersCard from '../components/AnswersCard';
 import QuestionCard from '../components/QuestionCard';
 
 const QuizScreen = props => {
+    console.log(props);
 
     const questions = props.questions;
     const totalQuestions = questions.length;

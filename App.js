@@ -4,25 +4,31 @@ import { StyleSheet, Text, View } from 'react-native';
 import Header from './components/Header';
 import QuizScreen from './screens/QuizScreen';
 import StartScreen from './screens/StartScreen';
+import totalQuestions from './Data/questions';
 
-const questions = [{
-  id: 1,
-  title: "¿ Al lugar mítico de donde partieron los mexicas e iniciaron su migración se le conoce cómo?",
-  choices: ["Aztlán", "Tula", "Mictlán", "Tenochtitlán"],
-  correct: "Aztlán"
-}]
+function pickQuestions(num){
+  const questionsSet = new Set();
+  while (questionsSet.size < num){
+    let randomIndex = Math.floor(Math.random() * Math.floor(totalQuestions.length));
+    //console.log(totalQuestions[randomIndex]);
+    questionsSet.add(totalQuestions[randomIndex])
+  }
+  return Array.from(questionsSet);
+}
 
 export default function App() {
- 
-   const startScreen = <StartScreen onStart={() => setScreen(gameScreen)} />;
-   const gameScreen = <QuizScreen questions={questions}/>; 
-   const [screen, setScreen] = useState(startScreen);
+
+   const [questions, setQuestions] = useState([]);
+   //console.log(questions);
+
+    
+   const [screen, setScreen] = useState('start');
 
   return (
     <View style={styles.container}>
       <StatusBar  barStyle={'light-content'}/>
       <Header />
-        {screen}
+        {screen === 'start' ? <StartScreen onStart={() => {setQuestions(pickQuestions(10)); setScreen('game')}} /> : <QuizScreen questions={questions}/> }
       </View>
   );
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import Color from "../constants/colors";
 import Card from '../components/Card';
@@ -9,14 +9,25 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 const AnswersCard = props => {
 
+    const [selectedAnswer, setSelectedAnswer] = useState("");
+
+
+
     const question = props.question;
     const answers = props.question.choices;
+    const currentIndex = props.currentIndex;
 
+    const onSelectAnswer = (answerTitle) =>{
+        setSelectedAnswer(answerTitle);
+        console.log("settings selected " + answerTitle);
+    }
+
+   
     return(
         
         <Card style={styles.questionView}>
-        {answers.map((answer, index) => <AnswerItem key={index} answerTitle={answer} />)}
-        <TouchableOpacity activeOpacity={0.8}>
+        {answers.map((answer, index) => <AnswerItem key={index} answerTitle={answer} onSelectAnswer={onSelectAnswer} selected={answer === selectedAnswer}/>)}
+        <TouchableOpacity activeOpacity={0.8} onPress={props.onNextQuestion}>
         <LinearGradient colors={['#28AEE2', '#28AEE2']} style={styles.appButtonContainer}>
             <Text style={styles.appButtonText}>Next</Text>
         </LinearGradient>

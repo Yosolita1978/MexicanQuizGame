@@ -10,25 +10,32 @@ import { LinearGradient } from 'expo-linear-gradient';
 const AnswersCard = props => {
 
     const [selectedAnswer, setSelectedAnswer] = useState("");
-
-
-
+    const [gradient, setGradient] = useState(['#DEDEDE', '#DEDEDE']);
+    const disabled = selectedAnswer === "";
     const question = props.question;
-    const answers = props.question.choices;
+    const answers = question.choices;
     const currentIndex = props.currentIndex;
-
+       
+    
     const onSelectAnswer = (answerTitle) =>{
         setSelectedAnswer(answerTitle);
         console.log("settings selected " + answerTitle);
+        setGradient(['#28AEE2', '#28AEE2']);
     }
 
-   
+    const onNext = () =>{
+        setSelectedAnswer("");
+        props.onNextQuestion();
+        setGradient(['#DEDEDE', '#DEDEDE']);
+    }
+
+      
     return(
         
         <Card style={styles.questionView}>
         {answers.map((answer, index) => <AnswerItem key={index} answerTitle={answer} onSelectAnswer={onSelectAnswer} selected={answer === selectedAnswer}/>)}
-        <TouchableOpacity activeOpacity={0.8} onPress={props.onNextQuestion}>
-        <LinearGradient colors={['#28AEE2', '#28AEE2']} style={styles.appButtonContainer}>
+        <TouchableOpacity activeOpacity={0.8} onPress={onNext} disabled={disabled}>
+        <LinearGradient colors={gradient} style={styles.appButtonContainer}>
             <Text style={styles.appButtonText}>Next</Text>
         </LinearGradient>
         </TouchableOpacity>
@@ -61,6 +68,9 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         alignSelf: "center",
         textTransform: "uppercase"
+      },
+      buttonDisbled:{
+          backgroundColor: Color.secondarydesac,
       }
     
     

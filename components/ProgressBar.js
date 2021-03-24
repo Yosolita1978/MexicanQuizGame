@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import Color from "../constants/colors";
 
-
-
-
 const ProgressBar = props => {
 
+    const numQuestion = props.progress;
+    const totalQuestions = props.numQuestions;
+    const percentage = numQuestion / totalQuestions * 100;
+
+    let progressWidthStyle = {width:`${percentage}%` }
+    
     return(
                
             <View style={styles.barView}>
-            <View style={styles.progressView}>
-                <Text style={styles.numText}> { props.progress} / {props.numQuestions}</Text>
+            <View style={StyleSheet.compose(styles.progressView, progressWidthStyle)}>
+                <Text style={styles.numText}> { numQuestion} / {totalQuestions}</Text>
             </View>
           
             </View>
@@ -33,7 +36,6 @@ const styles = StyleSheet.create({
     },
     progressView:{
         backgroundColor: Color.accent,
-        width:'10%',
         height: 25,
         marginTop: -25,
         justifyContent: 'center',
@@ -42,7 +44,7 @@ const styles = StyleSheet.create({
     },
     numText:{
         color: "black",
-        fontSize: 12,
+        fontSize: 11,
         textAlign: 'center',
         justifyContent: 'center',
         alignItems: 'center'

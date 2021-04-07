@@ -14,9 +14,9 @@ const FinalScreen = props => {
             return `Tuviste ${totalRightAnswers} de 10 respuestas correctas`;
         } else {
             if(totalRightAnswers === 0){
-                return `El que piensa pierde paisano.\n Tuviste ${totalRightAnswers} respuestas correctas.`;
+                return `El que piensa pierde, paisano.\n Tuviste ${totalRightAnswers} respuestas correctas.`;
             }else{
-                return `Tuviste ${totalRightAnswers} de 10 respuestas correctas. \n Pos'Pa'La otra`;
+                return `Pos'Pa'la otra \n Tuviste ${totalRightAnswers} de 10 respuestas correctas.` ;
             }
             
         }

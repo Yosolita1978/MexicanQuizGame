@@ -1,13 +1,18 @@
 {
   "expo": {
-    "name": "quizmexicanapp",
-    "slug": "quizmexicanapp",
+    "name": "Atínale",
+    "slug": "atinale",
     "version": "1.0.0",
+    "privacy": "public",
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
+      "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
     "updates": {
@@ -17,16 +22,18 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "co.yosola.atinale",
+      "buildNumber": "1.0.0"
     },
     "android": {
+      "package": "co.yosola.atinale",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       }
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
+    "description": "This app is a game quiz with ten real questions of the Mexican Naturalization Test to study a little of Mexican history in a fun way"
   }
 }

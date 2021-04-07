@@ -8,14 +8,14 @@ const StartScreen = props => {
     return(
         <View style={styles.startScreen}>
             <Text style={styles.title}>¿ Quién quiere ser mexicano ? </Text>
-        <View style={styles.cardView}>
+        
         <ImageBackground source={require('../images/doll.png')} style={styles.imgView}/>
         <TouchableOpacity activeOpacity={0.8} onPress={props.onStart}>
         <LinearGradient colors={['#efcd43', '#efcd43']} style={styles.buttonView}>
             <Text style={styles.appButtonText}>Start Game</Text>
         </LinearGradient>
         </TouchableOpacity>
-        </View>
+       
         
     </View>
     );
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     startScreen:{
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         backgroundColor: 'black'
        },
     title:{
@@ -34,18 +34,21 @@ const styles = StyleSheet.create({
         marginVertical:10,
         color: 'white',
         textDecorationColor: Color.accent,
-        marginBottom: 20
+        marginBottom: 20,
+        fontWeight: "bold",
+        marginTop: 80,
     },
        buttonView:{
         paddingHorizontal: 15,
-        marginTop: 10
+        marginTop: 80
     },
     
     imgView:{
-        width: 300,
-        height: 300,
-        borderRadius: 10,
-        overflow: 'hidden'
+        width: 200,
+        height: 200,
+        borderRadius: 80,
+        overflow: 'hidden',
+        marginTop: 40
     }, 
     appButtonText: {
         fontSize: 18,

@@ -19,13 +19,15 @@ const AnswersCard = props => {
     
     const onSelectAnswer = (answerTitle) =>{
         setSelectedAnswer(answerTitle);
-        console.log("settings selected " + answerTitle);
+        //console.log("settings selected " + answerTitle);
         setGradient(['#28AEE2', '#28AEE2']);
     }
 
     const onNext = () =>{
+        const isRight = selectedAnswer === question.correct;
+        //console.log(isRight);
         setSelectedAnswer("");
-        props.onNextQuestion();
+        props.onNextQuestion(isRight);
         setGradient(['#DEDEDE', '#DEDEDE']);
     }
 

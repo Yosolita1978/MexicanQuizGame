@@ -24,7 +24,8 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "co.yosola.atinale",
-      "buildNumber": "1.0.0"
+      "buildNumber": "1.0.0",
+      "icon": "./assets/appstore.png"
     },
     "android": {
       "package": "co.yosola.atinale",

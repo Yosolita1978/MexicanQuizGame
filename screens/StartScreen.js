@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground, TouchableOpacity  } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, Dimensions } from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
 import Color from '../constants/colors';
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -22,7 +23,10 @@ const StartScreen = props => {
 
 };
 
-const styles = StyleSheet.create({
+const entireScreenWidth = Dimensions.get('window').width;
+EStyleSheet.build({$rem: entireScreenWidth / 380});
+
+const styles = EStyleSheet.create({
     startScreen:{
         flex: 1,
         alignItems: 'center',
@@ -30,17 +34,17 @@ const styles = StyleSheet.create({
         backgroundColor: 'black'
        },
     title:{
-        fontSize: 20,
-        marginVertical:10,
+        fontSize: '20rem',
+        marginVertical:'10rem',
         color: 'white',
         textDecorationColor: Color.accent,
-        marginBottom: 20,
+        marginBottom: '20rem',
         fontWeight: "bold",
-        marginTop: 80,
+        marginTop: '40rem',
     },
        buttonView:{
-        paddingHorizontal: 15,
-        marginTop: 80
+        paddingHorizontal: '15rem',
+        marginTop: '80rem'
     },
     
     imgView:{
@@ -48,15 +52,15 @@ const styles = StyleSheet.create({
         height: 200,
         borderRadius: 80,
         overflow: 'hidden',
-        marginTop: 40
+        marginTop: '40rem'
     }, 
     appButtonText: {
-        fontSize: 18,
+        fontSize: '18rem',
         color: "white",
         fontWeight: "bold",
         alignSelf: "center",
         textTransform: "uppercase",
-        padding: 10
+        padding: '10rem'
       }
 
 });

@@ -120,7 +120,7 @@ const totalQuestions = [{
 },
 {
     id: 21,
-    title: "El mineral que más se extraía en la Nueva Españaera:",
+    title: "El mineral que más se extraía en la Nueva España era:",
     choices: ["Níquel", "Cobre", "Estaño", "Plata"],
     correct: "Plata"
 },
@@ -295,8 +295,8 @@ const totalQuestions = [{
 {
     id: 50,
     title: "¿Cuántos estados tiene la República Mexicana?",
-    choices: ["22", "31", "36", "50"],
-    correct: "31"
+    choices: ["22", "32", "36", "50"],
+    correct: "32"
 }
 
 

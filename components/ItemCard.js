@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity,  Dimensions   } from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
 import Color from "../constants/colors";
 
 const AnswerItem = props => {
@@ -21,20 +22,23 @@ const AnswerItem = props => {
         </TouchableOpacity>
         );
 };
+const entireScreenWidth = Dimensions.get('window').width;
+EStyleSheet.build({$rem: entireScreenWidth / 380});
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
     listItem: {
         backgroundColor: Color.accentLight,
         opacity: 0.9,
         borderBottomColor: '#bbb',
-        padding: 10,
-        marginVertical:5,
-        marginTop: 10,
+        padding: '10rem',
+        marginVertical: '5rem',
+        marginTop: '10rem',
         borderRadius: 10,
         elevation: 8,
+        width: '100%'
       },
       textItem:{
-          fontSize: 16,
+          fontSize: '16rem',
           textAlign: 'center',
           color: 'black'
 

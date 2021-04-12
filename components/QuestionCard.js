@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, Dimensions  } from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
 import Color from "../constants/colors";
 import Card from '../components/Card';
 import ProgressBar from './ProgressBar';
@@ -24,22 +25,23 @@ const QuestionCard = props => {
     );
 
 };
+const entireScreenWidth = Dimensions.get('window').width;
+EStyleSheet.build({$rem: entireScreenWidth / 380});
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
     questionView:{
-        width: '90%',
         alignItems: 'center',
-        marginTop: 15,
+        marginTop: '15rem',
         flexDirection: 'column',
         backgroundColor: Color.backgrounds,
-        paddingVertical:20
+        paddingVertical:'10rem'
     },
     questionText:{
-        fontSize: 20,
-        marginVertical: 10,
+        fontSize: '20rem',
+        marginVertical: '10rem',
         textAlign: 'center',
         color: Color.secondary,
-        padding:15
+        padding:'15rem'
     },
     
     barView:{
@@ -48,7 +50,7 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         width:'100%',
         backgroundColor: Color.backgroundGray,
-        paddingTop: 20
+        paddingTop: '20rem'
         
     },
     

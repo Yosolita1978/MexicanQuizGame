@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity, Dimensions  } from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
 import Color from "../constants/colors";
 import Card from '../components/Card';
 import AnswerItem from '../components/ItemCard';
@@ -46,26 +47,27 @@ const AnswersCard = props => {
     );
 
 };
+const entireScreenWidth = Dimensions.get('window').width;
+EStyleSheet.build({$rem: entireScreenWidth / 380});
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
     questionView:{
-        width: '90%',
         alignItems: 'stretch',
-        marginTop: 5,
+        marginTop: '5rem',
         flexDirection: 'column',
         backgroundColor: 'black',
-        height: 'auto'
+    
     },
     appButtonContainer: {
         elevation: 8,
         backgroundColor: "#009688",
         borderRadius: 10,
-        paddingVertical: 10,
-        paddingHorizontal: 12,
-        marginTop: 30
+        paddingVertical: '10rem',
+        paddingHorizontal: '12rem',
+        marginTop: '20rem'
     },
     appButtonText: {
-        fontSize: 18,
+        fontSize: '18rem',
         color: "#fff",
         fontWeight: "bold",
         alignSelf: "center",

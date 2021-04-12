@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground, TouchableOpacity  } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, Dimensions   } from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
 import Color from '../constants/colors';
 import { LinearGradient } from 'expo-linear-gradient';
 import Card from '../components/Card';
@@ -43,7 +44,10 @@ const FinalScreen = props => {
 
 };
 
-const styles = StyleSheet.create({
+const entireScreenWidth = Dimensions.get('window').width;
+EStyleSheet.build({$rem: entireScreenWidth / 380});
+
+const styles = EStyleSheet.create({
     finalScreen:{
         flex: 1,
         alignItems: 'center',
@@ -51,16 +55,16 @@ const styles = StyleSheet.create({
         backgroundColor: 'black'
        },
     title:{
-        fontSize: 20,
-        marginTop: 40,
+        fontSize: '20rem',
+        marginTop: '40rem',
         color: Color.accent,
         textDecorationColor: Color.accent,
-        marginBottom: 20,
+        marginBottom: '20rem',
         fontWeight: 'bold'
     },
        buttonView:{
-        paddingHorizontal: 15,
-        marginTop: 50,
+        paddingHorizontal: '15rem',
+        marginTop: '50rem',
     },
     
     imgView:{
@@ -70,20 +74,20 @@ const styles = StyleSheet.create({
         overflow: 'hidden'
     }, 
     appButtonText: {
-        fontSize: 14,
+        fontSize: '14rem',
         color: "white",
         fontWeight: "bold",
         alignSelf: "center",
         textTransform: "uppercase",
-        padding: 10
+        padding: '10rem'
       },
       finalCard:{
-          marginTop: 30,
-          width: 300,
+          marginTop: '30rem',
+          width: '90%',
       },
       answers:{
           fontWeight: 'bold',
-          fontSize: 20,
+          fontSize: '20rem',
           textAlign: 'center',
 
 
